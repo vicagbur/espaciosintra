@@ -1,4 +1,4 @@
-// Espacio Sintra — Interactive UI (Mobile Menu, Tarifas Tabs, Galería Lightbox)
+// Espacio Sintra — Interactive UI (Mobile Menu, Weekly Pricing Calendar + WhatsApp Calculator, Galería Lightbox)
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu toggle
   const toggle = document.getElementById('menu-toggle');
@@ -10,17 +10,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Tarifas tabs
-  const tabs = document.querySelectorAll('.tarifa-tab');
-  const panels = document.querySelectorAll('.tarifa-panel');
-  if (tabs.length) {
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.tab;
-        tabs.forEach((t) => t.classList.toggle('active', t === tab));
-        panels.forEach((p) => p.classList.toggle('active', p.id === target));
+  // Weekly Google-Calendar-style Tarifas Selector + Live Budget & WhatsApp Builder
+  const events = Array.from(document.querySelectorAll('.gcal-event'));
+  const calcTitle = document.getElementById('calc-title');
+  const calcSub = document.getElementById('calc-sub');
+  const calcTotal = document.getElementById('calc-total');
+  const calcWaBtn = document.getElementById('calc-wa-btn');
+  const extraLimpieza = document.getElementById('extra-limpieza');
+  const extraNevera = document.getElementById('extra-nevera');
+
+  if (events.length && calcTitle && calcTotal && calcWaBtn) {
+    let activeEv = document.querySelector('.gcal-event.selected') || events[0];
+
+    const updateCalculator = () => {
+      const day = activeEv.dataset.day;
+      const slot = activeEv.dataset.slot;
+      const hours = activeEv.dataset.hours;
+      const basePrice = Number(activeEv.dataset.price || 0);
+      const extraHour = activeEv.dataset.extra || '';
+
+      let total = basePrice;
+      const extrasText = [];
+      if (extraLimpieza && extraLimpieza.checked) {
+        total += 30;
+        extrasText.push('Servicio de limpieza (+30€)');
+      }
+      if (extraNevera && extraNevera.checked) {
+        total += 20;
+        extrasText.push('Nevera llena 20 uds (+20€)');
+      }
+
+      calcTitle.textContent = `${day} · ${slot} (${hours})`;
+      calcSub.textContent = `Tarifa base: ${basePrice} € · Hora extra: ${extraHour} · Reserva con 50 € + fianza 100 €`;
+      calcTotal.innerHTML = `${total} €<small>${extrasText.length ? 'Incluye extras seleccionados' : 'Tarifa base sin extras'}</small>`;
+
+      const msgParts = [
+        `¡Hola Espacio Sintra! Me gustaría consultar disponibilidad para:`,
+        `• Día / Turno: ${day} — ${slot} (${hours}) [${basePrice}€]`
+      ];
+      if (extrasText.length) {
+        msgParts.push(`• Extras: ${extrasText.join(' + ')}`);
+      }
+      msgParts.push(`• Total estimado: ${total}€`);
+      msgParts.push(`¿Qué fechas tenéis libres?`);
+
+      calcWaBtn.href = `https://api.whatsapp.com/send?phone=34681015983&text=${encodeURIComponent(msgParts.join('\n'))}`;
+    };
+
+    events.forEach((ev) => {
+      ev.addEventListener('click', () => {
+        events.forEach((e) => e.classList.remove('selected'));
+        ev.classList.add('selected');
+        activeEv = ev;
+        updateCalculator();
       });
     });
+
+    extraLimpieza?.addEventListener('change', updateCalculator);
+    extraNevera?.addEventListener('change', updateCalculator);
+    updateCalculator();
   }
 
   // Galeria lightbox

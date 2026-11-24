@@ -590,90 +590,302 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.2;
 }
 
-/* Tarifas Interactive Tabs */
-.tarifas-page-wrap { padding: 48px 0 80px; }
-.tarifa-tabs {
+/* Tarifas — Google Calendar Style Weekly Schedule */
+.tarifas-page-wrap { padding: 40px 0 84px; }
+
+.tier-legend {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 36px;
+  gap: 12px 20px;
+  margin-bottom: 24px;
 }
-.tarifa-tab {
-  background: #eef2ff;
-  color: var(--indigo);
-  border: 2px solid transparent;
-  padding: 13px 22px;
-  border-radius: var(--radius-pill);
+.tier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
   font-weight: 700;
-  font-size: 0.96rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.tarifa-tab:hover { border-color: var(--cobalt); }
-.tarifa-tab.active {
-  background: var(--cobalt);
-  color: var(--white);
-  box-shadow: 0 8px 20px rgba(25, 20, 210, 0.25);
-}
-.tarifa-panel { display: none; }
-.tarifa-panel.active { display: block; }
-.tarifa-panel-title {
-  text-align: center;
-  font-size: 1.35rem;
   color: var(--indigo);
-  margin-bottom: 28px;
+  background: #f5f7ff;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(46, 48, 146, 0.14);
 }
-.tarifa-cards-grid {
+.tier-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.tier-dot.lj { background: var(--turquoise); }
+.tier-dot.vi { background: var(--sky); }
+.tier-dot.fd { background: var(--cobalt); }
+
+.gcal-scroll {
+  overflow-x: auto;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+.gcal-board {
+  min-width: 880px;
+  background: var(--white);
+  border: 2px solid #dfe5f8;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.gcal-header {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: 74px repeat(7, 1fr);
+  background: #f7f9ff;
+  border-bottom: 2px solid #dfe5f8;
 }
-.tarifa-card {
-  background: var(--cobalt);
-  color: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 32px 24px;
+.gcal-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  border-right: 1px solid #e5eaf8;
+  padding: 12px 6px;
+}
+.gcal-day-head {
+  padding: 12px 8px;
+  text-align: center;
+  border-right: 1px solid #e5eaf8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.gcal-day-head:last-child { border-right: none; }
+.gcal-day-name {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--indigo);
+  text-transform: uppercase;
+}
+.gcal-day-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.gcal-day-head.tier-lj .gcal-day-tag { background: #dff9f7; color: #0f7670; }
+.gcal-day-head.tier-vi .gcal-day-tag { background: #dff3ff; color: #0b69a3; }
+.gcal-day-head.tier-fd { background: #eef1ff; }
+.gcal-day-head.tier-fd .gcal-day-tag { background: var(--cobalt); color: var(--white); }
+
+/* Time Rows inside Google Calendar Grid */
+.gcal-row {
+  display: grid;
+  grid-template-columns: 74px repeat(7, 1fr);
+  border-bottom: 1px solid #e8ecf9;
+}
+.gcal-row:last-child { border-bottom: none; }
+.gcal-time-col {
+  border-right: 1px solid #e5eaf8;
+  padding: 12px 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 18px;
+  align-items: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: #fafbff;
+  text-align: center;
+}
+.gcal-break-row {
+  background: repeating-linear-gradient(
+    -45deg,
+    #fafbff,
+    #fafbff 8px,
+    #f2f5fc 8px,
+    #f2f5fc 16px
+  );
+}
+.gcal-break-label {
+  grid-column: 2 / -1;
+  padding: 7px 14px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.gcal-cell {
+  padding: 8px 6px;
+  border-right: 1px solid #eef1fb;
+  display: flex;
+  align-items: stretch;
+}
+.gcal-cell:last-child { border-right: none; }
+.gcal-cell.tier-fd-bg { background: #f8f9ff; }
+
+/* Google Calendar Event Block */
+.gcal-event {
+  width: 100%;
+  border-radius: 12px;
+  padding: 11px 9px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  font-family: inherit;
+}
+.gcal-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(25, 20, 210, 0.16);
+}
+.gcal-event.selected {
+  border-color: #11132e !important;
+  box-shadow: 0 0 0 3px var(--mint), 0 10px 22px rgba(25, 20, 210, 0.22);
+  transform: translateY(-2px);
+}
+.gcal-event.tier-lj {
+  background: #e6fbf9;
+  border-left: 5px solid var(--turquoise);
+  color: #0d4b48;
+}
+.gcal-event.tier-vi {
+  background: #e6f5ff;
+  border-left: 5px solid var(--sky);
+  color: #0a466e;
+}
+.gcal-event.tier-fd {
+  background: var(--cobalt);
+  border-left: 5px solid var(--mint);
+  color: var(--white);
+}
+.gcal-ev-slot {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.85;
+  letter-spacing: 0.03em;
+}
+.gcal-ev-hours {
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.gcal-ev-price {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+.gcal-event.tier-fd .gcal-ev-price { color: var(--mint); }
+
+.gcal-fullday-row {
+  background: #f9fbff;
+  border-top: 2px solid #dfe5f8;
+}
+.gcal-extra-row {
+  background: #fafbff;
+}
+.gcal-extra-val {
+  width: 100%;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--indigo);
+  padding: 6px 4px;
+}
+
+/* Interactive Calculator Bar below Calendar */
+.calc-bar {
+  margin-top: 28px;
+  background: linear-gradient(135deg, #1914d2 0%, #2320b8 100%);
+  color: var(--white);
+  border-radius: 22px;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr auto;
+  align-items: center;
+  gap: 24px;
   box-shadow: var(--shadow-card);
 }
-.tarifa-card h3 {
-  font-size: 1.35rem;
+.calc-selected-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mint);
+  margin-bottom: 6px;
+}
+.calc-selected-title {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.calc-sub {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin-top: 6px;
+}
+.calc-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.calc-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 9px 14px;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+.calc-check:hover { background: rgba(255, 255, 255, 0.2); }
+.calc-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--mint);
+  cursor: pointer;
+}
+.calc-cta-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.calc-total {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: 2.35rem;
   font-weight: 800;
   color: var(--mint);
+  line-height: 1;
 }
-.tarifa-card .slot {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-.tarifa-card .big-price {
-  font-family: 'Archivo', 'Inter', sans-serif;
-  font-size: 2.7rem;
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.1;
-}
-.tarifa-card .btn-sky {
-  display: inline-block;
-  text-align: center;
-  background: var(--sky);
-  color: var(--white);
-  font-weight: 700;
-  padding: 12px 18px;
-  border-radius: 12px;
-  transition: background 0.2s, transform 0.2s;
-}
-.tarifa-card .btn-sky:hover {
-  background: var(--mint);
-  color: var(--indigo);
-  transform: translateY(-2px);
+.calc-total small {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 4px;
 }
 .tarifa-footnote {
   text-align: center;
-  margin-top: 22px;
+  margin-top: 20px;
   font-size: 0.95rem;
   color: var(--muted);
   font-style: italic;
@@ -682,7 +894,7 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
-  margin-top: 56px;
+  margin-top: 48px;
 }
 .extra-card {
   background: #f5f9ff;
@@ -704,6 +916,17 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.25rem;
   padding: 6px 16px;
   border-radius: var(--radius-pill);
+}
+
+@media (max-width: 980px) {
+  .calc-bar {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .calc-cta-col {
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 /* Galeria Grid + Lightbox */
