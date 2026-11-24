@@ -758,22 +758,20 @@ a { color: inherit; text-decoration: none; }
 .gcal-event.ev-manana {
   background: var(--sky);
   border-left-color: #0b74b8;
-  color: var(--white);
+  color: var(--indigo);
 }
 .gcal-event.ev-tarde {
   background: var(--turquoise);
   border-left-color: #16948d;
-  color: #12215c;
-}
-.gcal-event.ev-tarde .gcal-ev-badge {
-  background: rgba(18, 33, 92, 0.14);
-  color: #12215c;
+  color: var(--indigo);
 }
 .gcal-event.ev-mixto {
   background: var(--mint);
   border-left-color: #6ea84b;
   color: var(--indigo);
 }
+.gcal-event.ev-manana .gcal-ev-badge,
+.gcal-event.ev-tarde .gcal-ev-badge,
 .gcal-event.ev-mixto .gcal-ev-badge {
   background: rgba(46, 48, 146, 0.14);
   color: var(--indigo);
