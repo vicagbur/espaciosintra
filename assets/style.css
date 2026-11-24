@@ -590,21 +590,21 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.2;
 }
 
-/* Tarifas — Google Calendar Style Weekly Schedule */
-.tarifas-page-wrap { padding: 40px 0 84px; }
+/* Tarifas — Authentic Google Calendar Hourly Timeline (3 Day-Group Columns) */
+.tarifas-page-wrap { padding: 36px 0 84px; }
 
 .tier-legend {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px 20px;
+  gap: 10px 16px;
   margin-bottom: 24px;
 }
 .tier-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--indigo);
   background: #f5f7ff;
@@ -615,12 +615,13 @@ a { color: inherit; text-decoration: none; }
 .tier-dot {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+  border-radius: 4px;
   flex-shrink: 0;
 }
-.tier-dot.lj { background: var(--turquoise); }
-.tier-dot.vi { background: var(--sky); }
-.tier-dot.fd { background: var(--cobalt); }
+.tier-dot.ev-completo { background: #3b82f6; }
+.tier-dot.ev-manana { background: #0f8a4b; }
+.tier-dot.ev-tarde { background: #e65c00; }
+.tier-dot.ev-mixto { background: #009688; }
 
 .gcal-scroll {
   overflow-x: auto;
@@ -628,34 +629,33 @@ a { color: inherit; text-decoration: none; }
   -webkit-overflow-scrolling: touch;
 }
 .gcal-board {
-  min-width: 880px;
+  min-width: 860px;
   background: var(--white);
-  border: 2px solid #dfe5f8;
-  border-radius: 20px;
+  border: 1.5px solid #dadce0;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow-card);
 }
 .gcal-header {
   display: grid;
-  grid-template-columns: 74px repeat(7, 1fr);
-  background: #f7f9ff;
-  border-bottom: 2px solid #dfe5f8;
+  grid-template-columns: 68px 1fr 1fr 1.32fr;
+  background: #f8f9fc;
+  border-bottom: 1.5px solid #dadce0;
 }
 .gcal-corner {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  border-right: 1px solid #e5eaf8;
-  padding: 12px 6px;
+  color: #70757a;
+  border-right: 1px solid #dadce0;
+  padding: 10px 4px;
 }
 .gcal-day-head {
-  padding: 12px 8px;
+  padding: 16px 12px;
   text-align: center;
-  border-right: 1px solid #e5eaf8;
+  border-right: 1px solid #dadce0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -664,146 +664,141 @@ a { color: inherit; text-decoration: none; }
 .gcal-day-head:last-child { border-right: none; }
 .gcal-day-name {
   font-family: 'Archivo', 'Inter', sans-serif;
-  font-size: 0.98rem;
+  font-size: 1.12rem;
   font-weight: 800;
   color: var(--indigo);
-  text-transform: uppercase;
 }
 .gcal-day-tag {
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-.gcal-day-head.tier-lj .gcal-day-tag { background: #dff9f7; color: #0f7670; }
-.gcal-day-head.tier-vi .gcal-day-tag { background: #dff3ff; color: #0b69a3; }
-.gcal-day-head.tier-fd { background: #eef1ff; }
-.gcal-day-head.tier-fd .gcal-day-tag { background: var(--cobalt); color: var(--white); }
-
-/* Time Rows inside Google Calendar Grid */
-.gcal-row {
-  display: grid;
-  grid-template-columns: 74px repeat(7, 1fr);
-  border-bottom: 1px solid #e8ecf9;
-}
-.gcal-row:last-child { border-bottom: none; }
-.gcal-time-col {
-  border-right: 1px solid #e5eaf8;
-  padding: 12px 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--muted);
-  background: #fafbff;
-  text-align: center;
-}
-.gcal-break-row {
-  background: repeating-linear-gradient(
-    -45deg,
-    #fafbff,
-    #fafbff 8px,
-    #f2f5fc 8px,
-    #f2f5fc 16px
-  );
-}
-.gcal-break-label {
-  grid-column: 2 / -1;
-  padding: 7px 14px;
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--muted);
-  text-align: center;
-  letter-spacing: 0.02em;
+  color: #5f6368;
+}
+.gcal-day-head.tier-fd {
+  background: #eef2ff;
+}
+.gcal-day-head.tier-fd .gcal-day-name {
+  color: var(--cobalt);
 }
 
-.gcal-cell {
-  padding: 8px 6px;
-  border-right: 1px solid #eef1fb;
-  display: flex;
-  align-items: stretch;
+/* Hourly Grid Body: 12 hours (10:00 -> 22:00), 46px per hour = 552px */
+.gcal-timeline {
+  display: grid;
+  grid-template-columns: 68px 1fr 1fr 1.32fr;
+  --hour-h: 46px;
 }
-.gcal-cell:last-child { border-right: none; }
-.gcal-cell.tier-fd-bg { background: #f8f9ff; }
+.gcal-time-axis {
+  border-right: 1px solid #dadce0;
+  background: #fcfcfd;
+}
+.gcal-hour-label {
+  height: var(--hour-h);
+  padding: 0 8px 0 0;
+  text-align: right;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #70757a;
+  transform: translateY(-7px);
+}
+.gcal-hour-label:first-child {
+  transform: translateY(4px);
+}
 
-/* Google Calendar Event Block */
+.gcal-day-col {
+  position: relative;
+  height: calc(var(--hour-h) * 12);
+  border-right: 1px solid #dadce0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--hour-h) - 1px),
+    #eceff4 calc(var(--hour-h) - 1px),
+    #eceff4 var(--hour-h)
+  );
+}
+.gcal-day-col:last-child { border-right: none; }
+.gcal-day-col.tier-fd-bg {
+  background-color: #fafbff;
+}
+
+/* Google Calendar Event Blocks positioned by exact hour */
 .gcal-event {
-  width: 100%;
-  border-radius: 12px;
-  padding: 11px 9px;
-  border: 2px solid transparent;
+  position: absolute;
+  border-radius: 10px;
+  padding: 10px 10px 8px;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-left: 5px solid rgba(0, 0, 0, 0.22);
   cursor: pointer;
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 4px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  justify-content: flex-start;
+  gap: 2px;
+  color: var(--white);
   font-family: inherit;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, z-index 0.16s;
+  overflow: hidden;
 }
 .gcal-event:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(25, 20, 210, 0.16);
+  box-shadow: 0 10px 22px rgba(25, 20, 210, 0.26);
+  z-index: 20 !important;
 }
 .gcal-event.selected {
-  border-color: #11132e !important;
-  box-shadow: 0 0 0 3px var(--mint), 0 10px 22px rgba(25, 20, 210, 0.22);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px #11132e, 0 0 0 6px var(--mint), 0 12px 24px rgba(25, 20, 210, 0.3);
+  z-index: 25 !important;
 }
-.gcal-event.tier-lj {
-  background: #e6fbf9;
-  border-left: 5px solid var(--turquoise);
-  color: #0d4b48;
-}
-.gcal-event.tier-vi {
-  background: #e6f5ff;
-  border-left: 5px solid var(--sky);
-  color: #0a466e;
-}
-.gcal-event.tier-fd {
-  background: var(--cobalt);
-  border-left: 5px solid var(--mint);
-  color: var(--white);
-}
+
+/* Google Calendar Authentic Colors */
+.gcal-event.ev-completo { background: #3b82f6; border-left-color: #1d4ed8; }
+.gcal-event.ev-manana   { background: #0f8a4b; border-left-color: #065f32; }
+.gcal-event.ev-tarde    { background: #e65c00; border-left-color: #a83c00; }
+.gcal-event.ev-mixto    { background: #009688; border-left-color: #00695c; }
+
 .gcal-ev-slot {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  opacity: 0.85;
-  letter-spacing: 0.03em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 .gcal-ev-hours {
   font-size: 0.74rem;
-  opacity: 0.85;
+  font-weight: 500;
+  opacity: 0.94;
 }
 .gcal-ev-price {
   font-family: 'Archivo', 'Inter', sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1.1;
+  margin-top: 6px;
+}
+.gcal-ev-badge {
+  display: inline-block;
   margin-top: 4px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 2px 7px;
+  border-radius: 6px;
+  align-self: flex-start;
 }
-.gcal-event.tier-fd .gcal-ev-price { color: var(--mint); }
 
-.gcal-fullday-row {
-  background: #f9fbff;
-  border-top: 2px solid #dfe5f8;
-}
+/* Hora Extra Footer Row inside Board */
 .gcal-extra-row {
-  background: #fafbff;
+  display: grid;
+  grid-template-columns: 68px 1fr 1fr 1.32fr;
+  background: #f8f9fc;
+  border-top: 1.5px solid #dadce0;
 }
-.gcal-extra-val {
-  width: 100%;
+.gcal-extra-cell {
+  padding: 10px 12px;
   text-align: center;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--indigo);
-  padding: 6px 4px;
+  border-right: 1px solid #dadce0;
 }
+.gcal-extra-cell:last-child { border-right: none; }
 
 /* Interactive Calculator Bar below Calendar */
 .calc-bar {
@@ -885,16 +880,15 @@ a { color: inherit; text-decoration: none; }
 }
 .tarifa-footnote {
   text-align: center;
-  margin-top: 20px;
-  font-size: 0.95rem;
+  margin-top: 18px;
+  font-size: 0.94rem;
   color: var(--muted);
-  font-style: italic;
 }
 .extras-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
-  margin-top: 48px;
+  margin-top: 44px;
 }
 .extra-card {
   background: #f5f9ff;

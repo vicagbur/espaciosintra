@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Espacio Sintra - Tarifas y Turnos (Lunes a Domingo)</title>
-  <meta name="description" content="Consulta de un vistazo todos los turnos y tarifas de Espacio Sintra de lunes a domingo: mañanas, tardes, día completo, horas extra, limpieza y nevera llena.">
+  <title>Espacio Sintra - Tarifas y Turnos (Calendario Semanal)</title>
+  <meta name="description" content="Consulta todos los turnos y tarifas de Espacio Sintra: mañana, tarde, turno mixto de 6h con entrada flexible y día completo de lunes a domingo y festivos.">
   <link rel="canonical" href="https://www.espaciosintra.es/tarifas/">
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.espaciosintra.es/tarifas/">
-  <meta property="og:title" content="Espacio Sintra - Tarifas y Turnos (Lunes a Domingo)">
-  <meta property="og:description" content="Calendario visual de lunes a domingo con todos los turnos y precios exactos de Espacio Sintra en Vicálvaro, Madrid.">
+  <meta property="og:title" content="Espacio Sintra - Tarifas y Turnos">
+  <meta property="og:description" content="Calendario visual estilo Google Calendar con todos los turnos y precios exactos de Espacio Sintra en Vicálvaro, Madrid.">
   <meta property="og:image" content="https://www.espaciosintra.es/img/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,109 +55,185 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <h1>Tarifas y Turnos de Lunes a Domingo</h1>
-        <p>Mira de un vistazo todos los turnos disponibles cada día de la semana y su precio exacto. <strong>Haz clic en cualquier bloque del calendario</strong> para calcular tu presupuesto y consultar fecha por WhatsApp.</p>
+        <h1>Tarifas y Turnos</h1>
+        <p>Mira de un vistazo cómo se distribuyen los horarios y precios según el día de la semana. <strong>Toca cualquier turno</strong> para calcular tu presupuesto y consultar fecha por WhatsApp.</p>
       </div>
     </section>
 
     <section class="container tarifas-page-wrap">
       <!-- Legend -->
       <div class="tier-legend">
-        <span class="tier-pill"><span class="tier-dot lj"></span> Lunes a Jueves (no festivos ni vísperas)</span>
-        <span class="tier-pill"><span class="tier-dot vi"></span> Viernes o Vísperas de festivo</span>
-        <span class="tier-pill"><span class="tier-dot fd"></span> Sábados, Domingos y Festivos</span>
+        <span class="tier-pill"><span class="tier-dot ev-completo"></span> Turno completo (10h · 11:00–21:00)</span>
+        <span class="tier-pill"><span class="tier-dot ev-manana"></span> Turno mañana (4h · 11:00–15:00)</span>
+        <span class="tier-pill"><span class="tier-dot ev-tarde"></span> Turno tarde (4h · 17:00–21:00)</span>
+        <span class="tier-pill"><span class="tier-dot ev-mixto"></span> Turno mixto* (6h · entrada flexible · findes)</span>
       </div>
 
-      <!-- Weekly Google-Calendar-Style Schedule -->
+      <!-- Authentic Google Calendar Style Board -->
       <div class="gcal-scroll">
-        <div class="gcal-board" role="region" aria-label="Calendario semanal de tarifas de Espacio Sintra">
+        <div class="gcal-board" role="region" aria-label="Calendario visual de turnos y tarifas de Espacio Sintra">
 
-          <!-- Header Row (Days of Week) -->
+          <!-- Header: 3 Day Groups -->
           <div class="gcal-header">
-            <div class="gcal-corner">Horario</div>
-            <div class="gcal-day-head tier-lj"><span class="gcal-day-name">Lunes</span><span class="gcal-day-tag">Laborable</span></div>
-            <div class="gcal-day-head tier-lj"><span class="gcal-day-name">Martes</span><span class="gcal-day-tag">Laborable</span></div>
-            <div class="gcal-day-head tier-lj"><span class="gcal-day-name">Miércoles</span><span class="gcal-day-tag">Laborable</span></div>
-            <div class="gcal-day-head tier-lj"><span class="gcal-day-name">Jueves</span><span class="gcal-day-tag">Laborable</span></div>
-            <div class="gcal-day-head tier-vi"><span class="gcal-day-name">Viernes</span><span class="gcal-day-tag">O víspera</span></div>
-            <div class="gcal-day-head tier-fd"><span class="gcal-day-name">Sábado</span><span class="gcal-day-tag">Finde</span></div>
-            <div class="gcal-day-head tier-fd"><span class="gcal-day-name">Domingo</span><span class="gcal-day-tag">O festivo</span></div>
-          </div>
-
-          <!-- Row 1: Turno Mañana (11:00 - 15:00) -->
-          <div class="gcal-row">
-            <div class="gcal-time-col">
-              <span>11:00</span>
-              <span style="font-size:0.68rem; color:#8b91b2;">4h</span>
-              <span>15:00</span>
+            <div class="gcal-corner">GMT+1</div>
+            <div class="gcal-day-head">
+              <span class="gcal-day-name">Lunes a Jueves</span>
+              <span class="gcal-day-tag">No festivos ni vísperas</span>
             </div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Lunes" data-slot="Mañana" data-hours="11h–15h" data-price="80" data-extra="30 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">80 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Martes" data-slot="Mañana" data-hours="11h–15h" data-price="80" data-extra="30 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">80 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Miércoles" data-slot="Mañana" data-hours="11h–15h" data-price="80" data-extra="30 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">80 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Jueves" data-slot="Mañana" data-hours="11h–15h" data-price="80" data-extra="30 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">80 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-vi" data-day="Viernes / Víspera" data-slot="Mañana" data-hours="11h–15h" data-price="80" data-extra="40 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">80 €</span></button></div>
-            <div class="gcal-cell tier-fd-bg"><button type="button" class="gcal-event tier-fd" data-day="Sábado" data-slot="Mañana" data-hours="11h–15h" data-price="160" data-extra="40 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">160 €</span></button></div>
-            <div class="gcal-cell tier-fd-bg"><button type="button" class="gcal-event tier-fd" data-day="Domingo / Festivo" data-slot="Mañana" data-hours="11h–15h" data-price="160" data-extra="40 €/h"><span class="gcal-ev-slot">Mañana</span><span class="gcal-ev-hours">11:00 – 15:00</span><span class="gcal-ev-price">160 €</span></button></div>
-          </div>
-
-          <!-- Break Row (15:00 - 17:00) -->
-          <div class="gcal-row gcal-break-row">
-            <div class="gcal-time-col" style="padding:6px;">15–17h</div>
-            <div class="gcal-break-label">Cambio de turno y limpieza (o incluido si reservas el <strong>Día Completo 11:00 – 21:00</strong>)</div>
-          </div>
-
-          <!-- Row 2: Turno Tarde (17:00 - 21:00) -->
-          <div class="gcal-row">
-            <div class="gcal-time-col">
-              <span>17:00</span>
-              <span style="font-size:0.68rem; color:#8b91b2;">4h</span>
-              <span>21:00</span>
+            <div class="gcal-day-head">
+              <span class="gcal-day-name">Viernes y Vísperas</span>
+              <span class="gcal-day-tag">Vísperas de festivo</span>
             </div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Lunes" data-slot="Tarde" data-hours="17h–21h" data-price="120" data-extra="30 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">120 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Martes" data-slot="Tarde" data-hours="17h–21h" data-price="120" data-extra="30 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">120 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Miércoles" data-slot="Tarde" data-hours="17h–21h" data-price="120" data-extra="30 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">120 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Jueves" data-slot="Tarde" data-hours="17h–21h" data-price="120" data-extra="30 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">120 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-vi" data-day="Viernes / Víspera" data-slot="Tarde" data-hours="17h–21h" data-price="160" data-extra="40 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">160 €</span></button></div>
-            <div class="gcal-cell tier-fd-bg"><button type="button" class="gcal-event tier-fd selected" data-day="Sábado" data-slot="Tarde" data-hours="17h–21h" data-price="180" data-extra="40 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">180 €</span></button></div>
-            <div class="gcal-cell tier-fd-bg"><button type="button" class="gcal-event tier-fd" data-day="Domingo / Festivo" data-slot="Tarde" data-hours="17h–21h" data-price="180" data-extra="40 €/h"><span class="gcal-ev-slot">Tarde</span><span class="gcal-ev-hours">17:00 – 21:00</span><span class="gcal-ev-price">180 €</span></button></div>
-          </div>
-
-          <!-- Row 3: Día Completo (11:00 - 21:00) -->
-          <div class="gcal-row gcal-fullday-row">
-            <div class="gcal-time-col">
-              <span>11:00</span>
-              <span style="font-size:0.68rem; color:var(--cobalt);">10h</span>
-              <span>21:00</span>
+            <div class="gcal-day-head tier-fd">
+              <span class="gcal-day-name">Sábado, Domingo y Festivos</span>
+              <span class="gcal-day-tag">Incluye Turno Mixto de 6h*</span>
             </div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Lunes" data-slot="Día Completo" data-hours="11h–21h" data-price="170" data-extra="30 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">170 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Martes" data-slot="Día Completo" data-hours="11h–21h" data-price="170" data-extra="30 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">170 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Miércoles" data-slot="Día Completo" data-hours="11h–21h" data-price="170" data-extra="30 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">170 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-lj" data-day="Jueves" data-slot="Día Completo" data-hours="11h–21h" data-price="170" data-extra="30 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">170 €</span></button></div>
-            <div class="gcal-cell"><button type="button" class="gcal-event tier-vi" data-day="Viernes / Víspera" data-slot="Día Completo" data-hours="11h–21h" data-price="220" data-extra="40 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">220 €</span></button></div>
-            <div class="gcal-cell tier-fd-bg"><button type="button" class="gcal-event tier-fd" data-day="Sábado" data-slot="Día Completo" data-hours="11h–21h" data-price="310" data-extra="40 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">310 €</span></button></div>
-            <div class="gcal-cell tier-fd-bg"><button type="button" class="gcal-event tier-fd" data-day="Domingo / Festivo" data-slot="Día Completo" data-hours="11h–21h" data-price="310" data-extra="40 €/h"><span class="gcal-ev-slot">Día completo</span><span class="gcal-ev-hours">11:00 – 21:00</span><span class="gcal-ev-price">310 €</span></button></div>
           </div>
 
-          <!-- Row 4: Hora Extra -->
-          <div class="gcal-row gcal-extra-row">
-            <div class="gcal-time-col" style="padding:8px 4px; font-size:0.7rem;">+1 hora</div>
-            <div class="gcal-cell"><div class="gcal-extra-val">+30 €</div></div>
-            <div class="gcal-cell"><div class="gcal-extra-val">+30 €</div></div>
-            <div class="gcal-cell"><div class="gcal-extra-val">+30 €</div></div>
-            <div class="gcal-cell"><div class="gcal-extra-val">+30 €</div></div>
-            <div class="gcal-cell"><div class="gcal-extra-val">+40 €</div></div>
-            <div class="gcal-cell tier-fd-bg"><div class="gcal-extra-val">+40 €</div></div>
-            <div class="gcal-cell tier-fd-bg"><div class="gcal-extra-val">+40 €</div></div>
+          <!-- Hourly Grid (10:00 -> 22:00) -->
+          <div class="gcal-timeline">
+            <!-- Left Time Axis -->
+            <div class="gcal-time-axis" aria-hidden="true">
+              <div class="gcal-hour-label">10:00</div>
+              <div class="gcal-hour-label">11:00</div>
+              <div class="gcal-hour-label">12:00</div>
+              <div class="gcal-hour-label">13:00</div>
+              <div class="gcal-hour-label">14:00</div>
+              <div class="gcal-hour-label">15:00</div>
+              <div class="gcal-hour-label">16:00</div>
+              <div class="gcal-hour-label">17:00</div>
+              <div class="gcal-hour-label">18:00</div>
+              <div class="gcal-hour-label">19:00</div>
+              <div class="gcal-hour-label">20:00</div>
+              <div class="gcal-hour-label">21:00</div>
+            </div>
+
+            <!-- Col 1: Lunes a Jueves -->
+            <div class="gcal-day-col">
+              <!-- Completo: 11:00 (1h) -> 21:00 (10h) -->
+              <button type="button" class="gcal-event ev-completo"
+                style="top:calc(var(--hour-h) * 1); height:calc(var(--hour-h) * 10); left:6px; width:46%; z-index:2;"
+                data-day="Lunes a Jueves" data-slot="Turno completo" data-hours="11:00–21:00 (10h)" data-price="170" data-extra="30 €/h">
+                <span class="gcal-ev-slot">Turno completo</span>
+                <span class="gcal-ev-hours">11:00 – 21:00</span>
+                <span class="gcal-ev-price">170 €</span>
+                <span class="gcal-ev-badge">10 horas</span>
+              </button>
+
+              <!-- Mañana: 11:00 (1h) -> 15:00 (4h) -->
+              <button type="button" class="gcal-event ev-manana"
+                style="top:calc(var(--hour-h) * 1); height:calc(var(--hour-h) * 4); left:49%; width:48%; z-index:3;"
+                data-day="Lunes a Jueves" data-slot="Turno mañana" data-hours="11:00–15:00 (4h)" data-price="80" data-extra="30 €/h">
+                <span class="gcal-ev-slot">Turno mañana</span>
+                <span class="gcal-ev-hours">11:00 – 15:00</span>
+                <span class="gcal-ev-price">80 €</span>
+              </button>
+
+              <!-- Tarde: 17:00 (7h) -> 21:00 (4h) -->
+              <button type="button" class="gcal-event ev-tarde"
+                style="top:calc(var(--hour-h) * 7); height:calc(var(--hour-h) * 4); left:49%; width:48%; z-index:3;"
+                data-day="Lunes a Jueves" data-slot="Turno tarde" data-hours="17:00–21:00 (4h)" data-price="120" data-extra="30 €/h">
+                <span class="gcal-ev-slot">Turno tarde</span>
+                <span class="gcal-ev-hours">17:00 – 21:00</span>
+                <span class="gcal-ev-price">120 €</span>
+              </button>
+            </div>
+
+            <!-- Col 2: Viernes y Vísperas -->
+            <div class="gcal-day-col">
+              <!-- Completo: 11:00 -> 21:00 -->
+              <button type="button" class="gcal-event ev-completo"
+                style="top:calc(var(--hour-h) * 1); height:calc(var(--hour-h) * 10); left:6px; width:46%; z-index:2;"
+                data-day="Viernes o Víspera" data-slot="Turno completo" data-hours="11:00–21:00 (10h)" data-price="220" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno completo</span>
+                <span class="gcal-ev-hours">11:00 – 21:00</span>
+                <span class="gcal-ev-price">220 €</span>
+                <span class="gcal-ev-badge">10 horas</span>
+              </button>
+
+              <!-- Mañana: 11:00 -> 15:00 -->
+              <button type="button" class="gcal-event ev-manana"
+                style="top:calc(var(--hour-h) * 1); height:calc(var(--hour-h) * 4); left:49%; width:48%; z-index:3;"
+                data-day="Viernes o Víspera" data-slot="Turno mañana" data-hours="11:00–15:00 (4h)" data-price="80" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno mañana</span>
+                <span class="gcal-ev-hours">11:00 – 15:00</span>
+                <span class="gcal-ev-price">80 €</span>
+              </button>
+
+              <!-- Tarde: 17:00 -> 21:00 -->
+              <button type="button" class="gcal-event ev-tarde"
+                style="top:calc(var(--hour-h) * 7); height:calc(var(--hour-h) * 4); left:49%; width:48%; z-index:3;"
+                data-day="Viernes o Víspera" data-slot="Turno tarde" data-hours="17:00–21:00 (4h)" data-price="160" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno tarde</span>
+                <span class="gcal-ev-hours">17:00 – 21:00</span>
+                <span class="gcal-ev-price">160 €</span>
+              </button>
+            </div>
+
+            <!-- Col 3: Sábado, Domingo y Festivos (with overlapping Turno Mixto 13:00-19:00* like Google Calendar!) -->
+            <div class="gcal-day-col tier-fd-bg">
+              <!-- Completo: 11:00 -> 21:00 -->
+              <button type="button" class="gcal-event ev-completo"
+                style="top:calc(var(--hour-h) * 1); height:calc(var(--hour-h) * 10); left:6px; width:32%; z-index:2;"
+                data-day="Sábado, Domingo o Festivo" data-slot="Turno completo" data-hours="11:00–21:00 (10h)" data-price="310" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno completo</span>
+                <span class="gcal-ev-hours">11:00 – 21:00</span>
+                <span class="gcal-ev-price">310 €</span>
+                <span class="gcal-ev-badge">10 horas</span>
+              </button>
+
+              <!-- Mañana: 11:00 -> 15:00 -->
+              <button type="button" class="gcal-event ev-manana"
+                style="top:calc(var(--hour-h) * 1); height:calc(var(--hour-h) * 4); left:34%; width:33%; z-index:3;"
+                data-day="Sábado, Domingo o Festivo" data-slot="Turno mañana" data-hours="11:00–15:00 (4h)" data-price="160" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno mañana</span>
+                <span class="gcal-ev-hours">11:00 – 15:00</span>
+                <span class="gcal-ev-price">160 €</span>
+              </button>
+
+              <!-- Tarde: 17:00 -> 21:00 -->
+              <button type="button" class="gcal-event ev-tarde selected"
+                style="top:calc(var(--hour-h) * 7); height:calc(var(--hour-h) * 4); left:34%; width:33%; z-index:3;"
+                data-day="Sábado, Domingo o Festivo" data-slot="Turno tarde" data-hours="17:00–21:00 (4h)" data-price="180" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno tarde</span>
+                <span class="gcal-ev-hours">17:00 – 21:00</span>
+                <span class="gcal-ev-price">180 €</span>
+              </button>
+
+              <!-- Turno Mixto*: 13:00 (3h) -> 19:00 (6h) -->
+              <button type="button" class="gcal-event ev-mixto"
+                style="top:calc(var(--hour-h) * 3); height:calc(var(--hour-h) * 6); left:65%; width:33%; z-index:4;"
+                data-day="Sábado, Domingo o Festivo" data-slot="Turno mixto* (6h)" data-hours="13:00–19:00* entrada flexible" data-price="260" data-extra="40 €/h">
+                <span class="gcal-ev-slot">Turno mixto*</span>
+                <span class="gcal-ev-hours">13:00 – 19:00*</span>
+                <span class="gcal-ev-price">260 €</span>
+                <span class="gcal-ev-badge">6h · Flexible*</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Extra Hour Footer Row -->
+          <div class="gcal-extra-row">
+            <div class="gcal-corner" style="align-items:center; padding:8px 4px;">+1 hora</div>
+            <div class="gcal-extra-cell">Hora extra: <strong>+30 €</strong></div>
+            <div class="gcal-extra-cell">Hora extra: <strong>+40 €</strong></div>
+            <div class="gcal-extra-cell" style="background:#eef2ff;">Hora extra: <strong>+40 €</strong></div>
           </div>
 
         </div>
       </div>
 
+      <!-- Asterisk Explanations -->
+      <p class="tarifa-footnote">
+        <strong>* Turno mixto (6 horas · solo sábados, domingos y festivos):</strong> horario orientativo de 13:00 a 19:00 con <strong>entrada flexible</strong> (6 horas seguidas dentro de nuestra franja de apertura).<br>
+        <em>Consultar precios especiales para Semana Santa y fechas navideñas. Horas extra sujetas a disponibilidad.</em>
+      </p>
+
       <!-- Live Budget Calculator & Direct WhatsApp Bar -->
       <div class="calc-bar" aria-live="polite">
         <div>
           <div class="calc-selected-label">Turno seleccionado en el calendario</div>
-          <div id="calc-title" class="calc-selected-title">Sábado · Tarde (17h–21h)</div>
+          <div id="calc-title" class="calc-selected-title">Sábado, Domingo o Festivo · Turno tarde (17:00–21:00)</div>
           <p id="calc-sub" class="calc-sub">Tarifa base: 180 € · Hora extra: 40 €/h · Reserva con 50 € + fianza 100 €</p>
         </div>
 
@@ -179,8 +255,6 @@
           </a>
         </div>
       </div>
-
-      <p class="tarifa-footnote">*Consultar precios para Semana Santa y fechas navideñas. Las horas extra están sujetas a disponibilidad.</p>
 
       <!-- Extras Details -->
       <div class="extras-grid">
