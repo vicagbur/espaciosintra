@@ -618,10 +618,10 @@ a { color: inherit; text-decoration: none; }
   border-radius: 4px;
   flex-shrink: 0;
 }
-.tier-dot.ev-completo { background: #3b82f6; }
-.tier-dot.ev-manana { background: #0f8a4b; }
-.tier-dot.ev-tarde { background: #e65c00; }
-.tier-dot.ev-mixto { background: #009688; }
+.tier-dot.ev-completo { background: var(--cobalt); }
+.tier-dot.ev-manana { background: var(--sky); }
+.tier-dot.ev-tarde { background: var(--turquoise); }
+.tier-dot.ev-mixto { background: var(--mint); border: 1px solid rgba(46, 48, 146, 0.25); }
 
 .gcal-scroll {
   overflow-x: auto;
@@ -749,11 +749,35 @@ a { color: inherit; text-decoration: none; }
   z-index: 25 !important;
 }
 
-/* Google Calendar Authentic Colors */
-.gcal-event.ev-completo { background: #3b82f6; border-left-color: #1d4ed8; }
-.gcal-event.ev-manana   { background: #0f8a4b; border-left-color: #065f32; }
-.gcal-event.ev-tarde    { background: #e65c00; border-left-color: #a83c00; }
-.gcal-event.ev-mixto    { background: #009688; border-left-color: #00695c; }
+/* Espacio Sintra Official 4-Color Palette */
+.gcal-event.ev-completo {
+  background: var(--cobalt);
+  border-left-color: #0e0b8a;
+  color: var(--white);
+}
+.gcal-event.ev-manana {
+  background: var(--sky);
+  border-left-color: #0b74b8;
+  color: var(--white);
+}
+.gcal-event.ev-tarde {
+  background: var(--turquoise);
+  border-left-color: #16948d;
+  color: #12215c;
+}
+.gcal-event.ev-tarde .gcal-ev-badge {
+  background: rgba(18, 33, 92, 0.14);
+  color: #12215c;
+}
+.gcal-event.ev-mixto {
+  background: var(--mint);
+  border-left-color: #6ea84b;
+  color: var(--indigo);
+}
+.gcal-event.ev-mixto .gcal-ev-badge {
+  background: rgba(46, 48, 146, 0.14);
+  color: var(--indigo);
+}
 
 .gcal-ev-slot {
   font-size: 0.82rem;
