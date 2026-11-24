@@ -1,0 +1,922 @@
+/* Espacio Sintra — Official Static Design System (Migrated 1:1 from Framer to GitHub Pages) */
+:root {
+  --cobalt: #1914d2;
+  --indigo: #2e3092;
+  --sky: #1eaaff;
+  --turquoise: #28d2c8;
+  --mint: #afe68c;
+  --mint-soft: #e6f8de;
+  --white: #ffffff;
+  --ink: #1a1c36;
+  --muted: #52577a;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --shadow-card: 0 12px 32px rgba(18, 43, 105, 0.12);
+  --shadow-soft: 0 6px 20px rgba(18, 43, 105, 0.08);
+  --max-w: 1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--indigo);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================
+   NAVBAR (Cobalt #1914d2)
+   ========================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--cobalt);
+  color: var(--white);
+  box-shadow: 0 4px 18px rgba(25, 20, 210, 0.18);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 76px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  flex-shrink: 0;
+}
+.nav-logo img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--mint);
+}
+.btn-mint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--mint);
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 11px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+.btn-mint:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(25, 20, 210, 0.18);
+  filter: brightness(1.03);
+}
+.btn-mint-lg {
+  padding: 15px 34px;
+  font-size: 1.08rem;
+  border-radius: 14px;
+}
+.nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--white);
+  transition: transform 0.2s, background 0.2s;
+}
+.nav-socials a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+.nav-socials svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* Mobile menu button */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 10px;
+  color: var(--white);
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.mobile-drawer {
+  display: none;
+  background: var(--cobalt);
+  padding: 16px 24px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.mobile-drawer.open { display: block; }
+.mobile-drawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.mobile-drawer a {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  padding: 6px 0;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-section {
+  position: relative;
+  padding: 56px 0 64px;
+  overflow: hidden;
+  background: var(--white);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  align-items: center;
+  gap: 44px;
+  position: relative;
+  z-index: 2;
+}
+.hero-brand {
+  text-align: center;
+}
+.hero-wordmark {
+  width: min(520px, 100%);
+  margin: 0 auto 12px;
+}
+.hero-subtitle {
+  font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+  font-weight: 700;
+  color: var(--indigo);
+  margin-bottom: 34px;
+}
+.hero-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  font-size: 1.12rem;
+  font-weight: 500;
+  color: var(--indigo);
+}
+.hero-highlight-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-highlight-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.hero-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #101627;
+  box-shadow: var(--shadow-card);
+}
+.hero-video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.hero-cta-wrap {
+  text-align: center;
+  margin-top: 44px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative Brand Shapes */
+.deco-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+/* =========================================
+   CELEBRATIONS SECTION (Sky Blue #1eaaff)
+   ========================================= */
+.celebrations-section {
+  background: var(--sky);
+  color: var(--white);
+  padding: 72px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+.section-title {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 44px;
+}
+.celebrations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+.celebration-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 14px 14px 18px;
+  box-shadow: 0 14px 30px rgba(13, 48, 120, 0.2);
+  transition: transform 0.25s ease;
+}
+.celebration-card:nth-child(odd) { transform: rotate(-1.2deg); }
+.celebration-card:nth-child(even) { transform: rotate(1.2deg); }
+.celebration-card:hover { transform: rotate(0deg) translateY(-6px); }
+.celebration-card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--indigo);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.celebration-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* =========================================
+   TARIFAS SUMMARY (White)
+   ========================================= */
+.tarifas-home-section {
+  background: var(--white);
+  padding: 84px 0;
+  position: relative;
+  overflow: hidden;
+}
+.wave-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 46px;
+}
+.wave-heading h2 {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 700;
+  color: var(--indigo);
+  letter-spacing: 0.02em;
+}
+.wave-svg {
+  width: 96px;
+  height: auto;
+  flex-shrink: 0;
+}
+.tarifas-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 820px;
+  margin: 0 auto 44px;
+  position: relative;
+  z-index: 2;
+}
+.tarifa-mini {
+  padding: 8px 4px;
+}
+.tarifa-mini h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--indigo);
+  margin-bottom: 4px;
+}
+.tarifa-mini .hours {
+  font-size: 0.94rem;
+  color: var(--indigo);
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(46, 48, 146, 0.25);
+  margin-bottom: 12px;
+}
+.tarifa-mini .price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.tarifa-mini .desde {
+  font-size: 0.9rem;
+  color: var(--indigo);
+}
+.tarifa-mini .price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--indigo);
+}
+
+/* =========================================
+   REVIEWS SECTION (Turquoise #28d2c8)
+   ========================================= */
+.reviews-section {
+  background: var(--turquoise);
+  color: var(--white);
+  padding: 76px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 4px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.6) transparent;
+}
+.review-card {
+  flex: 0 0 310px;
+  scroll-snap-align: start;
+  background: var(--white);
+  color: var(--indigo);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.review-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.review-author {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--indigo);
+}
+.review-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.review-stars { color: #f6b500; letter-spacing: 1px; font-size: 0.95rem; }
+.review-text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #3a3f68;
+}
+.google-badge-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.google-badge-card {
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 16px;
+  padding: 16px 26px;
+  box-shadow: var(--shadow-card);
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.google-badge-score {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/* =========================================
+   BOOKING STEPS SECTION (White)
+   ========================================= */
+.steps-section {
+  background: var(--white);
+  padding: 84px 0 92px;
+  position: relative;
+  overflow: hidden;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.step-circle {
+  background: var(--sky);
+  color: var(--white);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--turquoise);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.step-circle h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+}
+.step-circle p {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.95);
+}
+.step-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+.step-icons a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.step-icons a:hover { background: var(--cobalt); }
+.step-icons svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* =========================================
+   SUBPAGES: HERO BANNER + CARDS
+   ========================================= */
+.page-hero {
+  background: linear-gradient(180deg, #f4f7ff 0%, #ffffff 100%);
+  padding: 56px 0 44px;
+  text-align: center;
+  border-bottom: 1px solid rgba(25, 20, 210, 0.08);
+}
+.page-hero h1 {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  color: var(--indigo);
+  margin-bottom: 14px;
+}
+.page-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+/* El Espacio 3-column mint cards */
+.espacio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 56px 0 76px;
+}
+.espacio-card {
+  background: var(--mint-soft);
+  border: 2px solid var(--mint);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-soft);
+}
+.espacio-card-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 18px;
+}
+.espacio-card h2 {
+  font-size: 1.35rem;
+  color: var(--indigo);
+  margin-bottom: 16px;
+}
+.espacio-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.espacio-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.97rem;
+  color: var(--indigo);
+}
+.espacio-list li::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+  color: var(--cobalt);
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+/* Tarifas Interactive Tabs */
+.tarifas-page-wrap { padding: 48px 0 80px; }
+.tarifa-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.tarifa-tab {
+  background: #eef2ff;
+  color: var(--indigo);
+  border: 2px solid transparent;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tarifa-tab:hover { border-color: var(--cobalt); }
+.tarifa-tab.active {
+  background: var(--cobalt);
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(25, 20, 210, 0.25);
+}
+.tarifa-panel { display: none; }
+.tarifa-panel.active { display: block; }
+.tarifa-panel-title {
+  text-align: center;
+  font-size: 1.35rem;
+  color: var(--indigo);
+  margin-bottom: 28px;
+}
+.tarifa-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.tarifa-card {
+  background: var(--cobalt);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow: var(--shadow-card);
+}
+.tarifa-card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--mint);
+}
+.tarifa-card .slot {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.tarifa-card .big-price {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+}
+.tarifa-card .btn-sky {
+  display: inline-block;
+  text-align: center;
+  background: var(--sky);
+  color: var(--white);
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: background 0.2s, transform 0.2s;
+}
+.tarifa-card .btn-sky:hover {
+  background: var(--mint);
+  color: var(--indigo);
+  transform: translateY(-2px);
+}
+.tarifa-footnote {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+.extra-card {
+  background: #f5f9ff;
+  border: 2px solid #d5e4ff;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.extra-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.extra-price {
+  background: var(--mint);
+  color: var(--indigo);
+  font-weight: 800;
+  font-size: 1.25rem;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+}
+
+/* Galeria Grid + Lightbox */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 48px 0 80px;
+}
+.galeria-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4 / 3;
+  background: #eef2ff;
+}
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.galeria-item:hover img { transform: scale(1.05); }
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(12, 14, 42, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 85vh;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.lightbox-btn {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--white);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-btn:hover { background: var(--mint); color: var(--indigo); }
+.lightbox-close { top: 20px; right: 24px; }
+.lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+/* Reservar Page */
+.reservar-wrap { padding: 52px 0 84px; max-width: 820px; margin: 0 auto; }
+.reserva-step-card {
+  background: #f5f9ff;
+  border-left: 8px solid var(--sky);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-soft);
+}
+.reserva-step-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.contact-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+.contact-pill {
+  background: var(--turquoise);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 15px 22px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.2s, background 0.2s;
+}
+.contact-pill:hover {
+  background: var(--cobalt);
+  transform: translateY(-2px);
+}
+.contact-pill svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* Legal Pages */
+.legal-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 24px 84px;
+}
+.legal-wrap h1 {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--indigo);
+  margin-bottom: 24px;
+}
+.legal-wrap p {
+  margin-bottom: 16px;
+  color: #2f3458;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+.legal-wrap h2 {
+  font-size: 1.25rem;
+  color: var(--cobalt);
+  margin: 26px 0 10px;
+}
+
+/* =========================================
+   FOOTER (Cobalt #1914d2)
+   ========================================= */
+.site-footer {
+  background: var(--cobalt);
+  color: var(--white);
+  padding: 64px 0 36px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1fr;
+  gap: 36px;
+  align-items: start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.footer-logo { width: 170px; margin-bottom: 18px; }
+.footer-address {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 16px;
+}
+.footer-map {
+  width: 100%;
+  height: 210px;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.footer-nav a {
+  font-weight: 600;
+  color: var(--white);
+}
+.footer-nav a:hover { color: var(--mint); }
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer-credit strong { color: var(--mint); }
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 22px;
+  padding-top: 26px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer-legal a:hover { color: var(--mint); text-decoration: underline; }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 980px) {
+  .hero-grid,
+  .espacio-grid,
+  .footer-top { grid-template-columns: 1fr; }
+  .celebrations-grid,
+  .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-grid,
+  .tarifa-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .extras-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 810px) {
+  .nav-right { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .tarifas-summary-grid { grid-template-columns: 1fr; text-align: center; }
+  .tarifa-mini .price-row { justify-content: center; gap: 16px; }
+  .celebrations-grid,
+  .galeria-grid,
+  .steps-grid,
+  .tarifa-cards-grid,
+  .contact-pills { grid-template-columns: 1fr; }
+  .step-circle { border-radius: var(--radius-lg); aspect-ratio: auto; padding: 28px 22px; }
+  .wave-svg { width: 52px; }
+}
